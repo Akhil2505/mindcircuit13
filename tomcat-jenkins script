@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone SCM') {
+            steps {
+                echo 'Cloning of Akhil2505 project code'
+				git branch: 'main', credentialsId: '9a098189-c986-4011-bcf7-de8254e9fa2a', url: 'https://github.com/Akhil2505/mindcircuit13.git'
+            }
+        }
+		
+		stage('Build Artifact') {
+            steps {
+                echo 'Building code with maven builder tool'
+				sh 'mvn clean install'
+            }
+        }
+		
+		stage('Deploy to tomcat') {
+            steps {
+                echo 'Deploying artifact to tomcat webserver'
+				deploy adapters: [tomcat9(credentialsId: '9a098189-c986-4011-bcf7-de8254e9fa2a', path: '', url: 'http://44.200.159.179:8091/')], contextPath: 'facebook-Akhil', war: '**/*.war'
+            }
+        }
+    }
+}
