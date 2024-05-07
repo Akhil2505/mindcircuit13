@@ -13,20 +13,17 @@
 		<sonar.host.url>http://3.220.230.129:9000/</sonar.host.url>
 
 	</properties>
-
-
-	<distributionManagement>
+<distributionManagement>
 		 <snapshotRepository>
 		    <id>nexusRepo</id>
-		    <url>http://54.236.16.181:8081/repository/batch12-snapshots/</url>
+		    <url>http://18.204.243.5:8081/repository/Akhilb13-snapshot/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>nexusRepo</id>
-		    <url>http://54.236.16.181:8081/repository/batch12-release/</url>
+		    <url>http://18.204.243.5:8081/repository/Akhilb13-release/<url>
 		</repository>
   	</distributionManagement>
-	
     
     <build>
         <plugins>
